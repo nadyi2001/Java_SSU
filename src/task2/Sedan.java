@@ -47,6 +47,7 @@ public class Sedan extends AbstractVehicle implements Car, Comparable<Sedan> {
         if (!(o instanceof Sedan)) return false;
         if (!super.equals(o)) return false;
         Sedan sedan = (Sedan) o;
+
         return Double.compare(sedan.mileage, mileage) == 0;
     }
 
@@ -58,12 +59,14 @@ public class Sedan extends AbstractVehicle implements Car, Comparable<Sedan> {
     @Override
     public int compareTo(Sedan o) {
         int mileageComparison = Double.compare(this.mileage, o.mileage);
+        int yearComparison = Double.compare(this.getYear(), o.getYear());
         if (mileageComparison != 0) {
             return mileageComparison;
+        } else if (yearComparison != 0){
+            return yearComparison;
         }
-        return Integer.compare(this.getYear(), o.getYear());
+        return this.getModel().compareTo(o.getModel());
     }
-
 
     @Override
     public AbstractVehicle deepCopy() {

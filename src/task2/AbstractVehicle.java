@@ -41,7 +41,7 @@ public abstract class AbstractVehicle implements Cloneable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AbstractVehicle that = (AbstractVehicle) o;
-        return year == that.year && Objects.equals(make, that.make) && Objects.equals(model, that.model);
+        return this.year == that.year && Objects.equals(this.make, that.make) && Objects.equals(this.model, that.model);
     }
 
     @Override

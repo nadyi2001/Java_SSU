@@ -58,10 +58,13 @@ public class SUV extends AbstractVehicle implements Car, Comparable<SUV> {
     @Override
     public int compareTo(SUV o) {
         int mileageComparison = Double.compare(this.mileage, o.mileage);
+        int yearComparison = Double.compare(this.getYear(), o.getYear());
         if (mileageComparison != 0) {
             return mileageComparison;
+        } else if (yearComparison != 0){
+            return yearComparison;
         }
-        return Integer.compare(this.getYear(), o.getYear());
+        return this.getModel().compareTo(o.getModel());
     }
 
 
