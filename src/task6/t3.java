@@ -5,7 +5,7 @@ public class t3 {
     private static final int INCREMENT_TIMES = 100000;
 
 
-    public static void main(String[] args) {
+    public void run() {
         Thread thread1 = new Thread(() -> incrementCounter(INCREMENT_TIMES));
         Thread thread2 = new Thread(() -> incrementCounter(INCREMENT_TIMES));
 
@@ -23,10 +23,14 @@ public class t3 {
 
     }
 
-    private synchronized static void incrementCounter(int times) {
+    public synchronized void incrementCounter(int times) {
         for (int i = 0; i < times; i++) {
             counter++;
         }
+    }
+
+    public static void main(String[] args) {
+        new t3().run();
     }
 }
 
